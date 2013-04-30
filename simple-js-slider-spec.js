@@ -39,6 +39,7 @@ describe("Simple Slider", function() {
         var control = slider.control;
         expect(control.getAttribute("max")).toEqual('1');
         expect(control.getAttribute("min")).toEqual('0');
+        expect(control.getAttribute("step")).toEqual('0.01');
       });
     });
 
@@ -57,6 +58,23 @@ describe("Simple Slider", function() {
   });
 
   describe("Sliders", function() {
+    var sliders;
+    beforeEach(function() {
+    });
 
+    describe("render()", function() {
+      it("creates as many sliders as it's told into the given element", function() {
+        sliders = new SimpleSlider.Sliders(3, jasmineContent);
+        spyOn(SimpleSlider.Slider.prototype, 'render');
+        sliders.render();
+        expect(SimpleSlider.Slider.prototype.render.callCount).toEqual(3);
+      });
+
+      it("inserts its child sliders into the given element", function() {
+        sliders = new SimpleSlider.Sliders(2, jasmineContent);
+        sliders.render();
+        expect(jasmineContent.querySelectorAll("input[type=range]").length).toEqual(2);
+      });
+    });
   });
 });

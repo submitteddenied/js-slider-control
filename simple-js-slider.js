@@ -21,6 +21,7 @@
     control.type = "range";
     control.min = 0;
     control.max = 1;
+    control.step = 0.01;
 
     control.addEventListener("change", this.handleChange);
 
@@ -33,6 +34,25 @@
   };
 
   SimpleSlider.prototype.Slider = Slider;
+
+  var Sliders = function(count, el) {
+    this.count = count;
+    this.el = el;
+  };
+
+  Sliders.prototype.render = function() {
+    this.sliders = [];
+    for(var i = 0; i < this.count; i++) {
+      var sliderEl = document.createElement("div");
+      var slider = new Slider(sliderEl);
+      slider.render();
+      this.el.appendChild(sliderEl);
+
+      this.sliders.push(slider);
+    }
+  };
+
+  SimpleSlider.prototype.Sliders = Sliders;
 
   window.SimpleSlider = new SimpleSlider();
 })();
