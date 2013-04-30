@@ -24,8 +24,7 @@ describe("Simple Slider", function() {
   describe("Slider", function() {
     var slider;
     beforeEach(function() {
-      slider = new SimpleSlider.Slider();
-      slider.el = document.createElement("div");
+      slider = new SimpleSlider.Slider(document.createElement("div"));
       jasmineContent.appendChild(slider.el);
     });
 
@@ -55,5 +54,9 @@ describe("Simple Slider", function() {
         expect(slider.handleChange).toHaveBeenCalledWith(e);
       });
     });
+  });
+
+  describe("Sliders", function() {
+
   });
 });
