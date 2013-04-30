@@ -1,6 +1,8 @@
 # js-slider-control
 A simple, js-only slider control
 
+__Note:__ None of the stuff below is finished yet :)
+
 ## Usage
 Put `simple-js-slider.js` on your page. 
 It will go and live under the `window.SimpleSlider` object. Use `SimpleSlider.noConflict()` to get a reference and restore whatever was at `SimpleSlider` before.
